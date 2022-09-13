@@ -1,50 +1,44 @@
-import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
-import icon from '../../assets/icon.svg';
+import { MemoryRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
+// import icon from '../../assets/icon.svg';
 import './App.css';
-
-const Hello = () => {
-  return (
-    <div>
-      <div className="Hello">
-        <img width="200" alt="icon" src={icon} />
-      </div>
-      <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs
-          </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="folded hands">
-              🙏
-            </span>
-            Donate
-          </button>
-        </a>
-      </div>
-    </div>
-  );
-};
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import AddNewClient from './component/AddNewClient/AddNewClient';
+import ClientDetails from './component/ClientDetails/ClientDetails';
+import ClientList from './component/ClientList/ClientList';
+import Home from './component/Home/Home';
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Hello />} />
+        <Route path="/" element={<Layout />}>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="client-list" element={<ClientList />} />
+            <Route path="add-client" element={<AddNewClient />} />
+            <Route path="client-list" element={<ClientDetails />} />
+        </Route>
       </Routes>
     </Router>
+  );
+}
+
+function Layout() {
+  return (
+      <div className='page-container'>
+      <div className="page-header">
+          <div><h2>Survivor's Client Application</h2></div>
+          <nav className="navigation">
+              <Link className="page-link" to="/">
+                  <div className="nav-button">
+                      <img className="home-button active" src={require("../../assets/icons/home-icon.png")}></img>
+                      <img className="home-button inactive" src={require("../../assets/icons/home-blue-icon.png")}></img> Home
+                  </div>
+              </Link>
+          </nav>
+      </div>
+      <div className="content">
+          <Outlet />
+      </div>
+      </div>
   );
 }

@@ -1,0 +1,17 @@
+.page-client-details {
+    padding: 30px;
+}
+
+.link-color {
+    cursor: pointer;
+    color: #1890ff;
+}
+
+.page-client-details .field {
+    /* display: flex; */
+}
+
+.page-client-details .field-label {
+    margin-right: 10px;
+    font-weight: bold;
+}

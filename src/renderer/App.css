@@ -1,62 +1,74 @@
-/*
- * @NOTE: Prepend a `~` to css file paths that are in your node_modules
- *        See https://github.com/webpack-contrib/sass-loader#imports
- */
-body {
-  position: relative;
-  color: white;
-  height: 100vh;
-  background: linear-gradient(
-    200.96deg,
-    #fedc2a -29.09%,
-    #dd5789 51.77%,
-    #7a2c9e 129.35%
-  );
-  font-family: sans-serif;
-  overflow-y: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-button {
-  background-color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  appearance: none;
-  font-size: 1.3rem;
-  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
-    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
-  transition: all ease-in 0.1s;
-  cursor: pointer;
-  opacity: 0.9;
-}
-
-button:hover {
-  transform: scale(1.05);
-  opacity: 1;
-}
-
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  height: fit-content;
-  width: fit-content;
+.App {
   margin: 10px;
 }
 
-a:hover {
-  opacity: 1;
-  text-decoration: none;
+.nav-button {
+  font-size: 16px;
+}
+img.home-button.active {
+  display: none;
+}
+img.home-button.inactive {
+  display: block;
+}
+.navigation .page-link:hover:hover img.active {
+  display: block;
+}
+.navigation .page-link:hover:hover img.inactive {
+  display: none;
+}
+.navigation .page-link:hover {
+  background-color: #98ccfd;
+  color: #fff;
+}
+body {
+  margin: 0;
+  background-color: #eff4ff !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.Hello {
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.content {
+  background-color: #eff4ff;
+  /* height: 100vh; */
+}
+
+.page-header {
+  background-color: #fff;
+  padding: 30px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.page-link {
+  text-decoration: none;
+  color: rgb(43, 42, 42);
+  font-size: 14px;
+  padding: 10px 15px;
+  background: #f2f2f2;
+  margin-right: 30px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
-  margin: 20px 0;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+}
+
+.nav-button img {
+  width: 30px;
+  margin-right: 10px;
 }
